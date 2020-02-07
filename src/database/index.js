@@ -22,12 +22,17 @@ class Database {
       .map(model => model.associate && model.associate(this.connection.models));
   }
 
+  /**
+   * 'mongodb+srv://rodrigo:37056798@cluster0-0gqtu.mongodb.net/test?retryWrites=true&w=majority',
+   * 'mongodb://localhost:27017/gobarber'
+   */
   mongo() {
     this.mongoConnection = mongoose.connect(
       'mongodb+srv://rodrigo:37056798@cluster0-0gqtu.mongodb.net/test?retryWrites=true&w=majority',
       {
-        userNewUrlParser: true,
+        useNewUrlParser: true,
         useFindAndModify: true,
+        useUnifiedTopology: true,
       }
     );
   }
